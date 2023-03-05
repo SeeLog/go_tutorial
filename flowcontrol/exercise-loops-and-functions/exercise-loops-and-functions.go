@@ -7,10 +7,9 @@ import (
 
 func Sqrt(x float64) float64 {
 	z := 1.0
-	for i := 0; i < 10; i++ {
+	for {
 		z -= (z*z - x) / (2 * z)
-		if z*z == x {
-			fmt.Println("early break")
+		if math.Abs(x-z*z) < 10e-14 {
 			break
 		}
 	}
